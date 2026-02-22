@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reborn 雅思口语真题练习 · 全面版</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #F8F8F8;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #c2e6e6;
+        }
+        
+        .main-title {
+            color: #0F6B6B;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #2A8C8C;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        
+        .batch-tag {
+            display: inline-block;
+            background-color: #0F6B6B;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin: 0 5px;
+        }
+        
+        .container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .sidebar {
+            flex: 1.2;
+            min-width: 350px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            border: 1px solid #d9f0f0;
+        }
+        
+        .content {
+            flex: 2.5;
+            min-width: 600px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0,0, 0.05);
+            padding: 25px;
+            border: 1px solid #d9f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .category-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .category-group {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .category-header {
+            background-color: #e0f2f2;
+            color: #0F6B6B;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-left: 5px solid #0F6B6B;
+        }
+        
+        .category-btn {
+            background-color: #e0f2f2;
+            color: #0F6B6B;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .category-btn:hover {
+            background-color: #c2e6e6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .category-btn.active {
+            background-color: #0F6B6B;
+            color: white;
+        }
+        
+        .topic-list {
+            display: none;
+            flex-direction: column;
+            gap: 8px;
+            padding-left: 15px;
+            border-left: 3px solid #d9f0f0;
+            margin: 10px 0 15px 0;
+        }
+        
+        .topic-list.active {
+            display: flex;
+        }
+        
+        .topic-item {
+            background-color: white;
+            border: 1px solid #e0f2f2;
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            color: #2A8C8C;
+            font-weight: 500;
+        }
+        
+        .topic-item:hover {
+            background-color: #f0f9f9;
+            border-color: #2A8C8C;
+        }
+        
+        .topic-item.active {
+            background-color: #e0f2f2;
+            border-color: #0F6B6B;
+            color: #0F6B6B;
+            font-weight: 600;
+        }
+        
+        .part-selector {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .part-btn {
+            background-color: #e0f2f2;
+            color: #0F6B6B;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .part-btn:hover {
+            background-color: #c2e6e6;
+        }
+        
+        .part-btn.active {
+            background-color: #0F6B6B;
+            color: white;
+        }
+        
+        .timer-section {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 25px;
+        }
+        
+        .timer-container {
+            background-color: #0F6B6B;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(15, 107, 107, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .timer-display {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+        
+        .timer-label {
+            font-size: 1rem;
+            font-weight: 500;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 6px;
+        }
+        
+        .timer-btn {
+            background-color: white;
+            color: #0F6B6B;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .timer-btn:hover {
+            background-color: #f0f9f9;
+            transform: scale(1.05);
+        }
+        
+        .card-section {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-header {
+            color: #0F6B6B;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0f2f2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .badge-new {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .badge-keep {
+            background-color: #2A8C8C;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .card-content {
+            background-color: #f8fcfc;
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid #d9f0f0;
+            flex-grow: 1;
+            overflow-y: auto;
+            max-height: 600px;
+        }
+        
+        .topic-title {
+            color: #0F6B6B;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .task-instruction {
+            background-color: #e0f2f2;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #2A8C8C;
+            border-left: 4px solid #0F6B6B;
+        }
+        
+        .card-item {
+            margin-bottom: 25px;
+        }
+        
+        .card-item h3 {
+            color: #0F6B6B;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .card-item p, .card-item ul {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        .card-item ul {
+            padding-left: 20px;
+        }
+        
+        .card-item li {
+            margin-bottom: 8px;
+        }
+        
+        .part3-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e0f2f2;
+        }
+        
+        .question-list {
+            margin-top: 15px;
+        }
+        
+        .question-item {
+            background-color: white;
+            border: 1px solid #e0f2f2;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+        }
+        
+        .question-item:hover {
+            background-color: #f0f9f9;
+            border-color: #2A8C8C;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #c2e6c6;
+            color: #2A8C8C;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 1000px) {
+            .sidebar {
+                min-width: 280px;
+            }
+            .content {
+                min-width: 100%;
+            }
+            .main-title {
+                font-size: 2.2rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        
+        .icon {
+            font-size: 1.2rem;
+        }
+        
+        .category-badge {
+            font-size: 0.7rem;
+            background-color: #2A8C8C;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-left: 8px;
+        }
+        
+        .search-box {
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d9f0f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            background-color: #f8fcfc;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #0F6B6B;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="main-title">Reborn 雅思口语真题练习</h1>
+        <p class="subtitle">2026年1-4月 · 完整题库 <span class="batch-tag">新增题</span> <span class="batch-tag">保留题</span></p>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索话题关键词... (如: movie, friend, place)" id="searchInput">
+            </div>
+            
+            <div class="category-nav" id="categoryNav">
+                <!-- Part 1 新增题 -->
+                <div class="category-group">
+                    <div class="category-header">📋 Part 1 新增题</div>
+                    <button class="category-btn" data-category="part1-new">
+                        <span><i class="fas fa-star" style="color: #ffd700; margin-right: 8px;"></i>Part 1 新题 (16)</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </button>
+                    <div class="topic-list" id="part1-new-topics"></div>
+                </div>
+                
+                <!-- Part 1 保留题 -->
+                <div class="category-group">
+                    <div class="category-header">📋 Part 1 保留题</div>
+                    <button class="category-btn" data-category="part1-keep">
+                        <span><i class="fas fa-history" style="color: #2A8C8C; margin-right: 8px;"></i>Part 1 保留题 (20+)</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </button>
+                    <div class="topic-list" id="part1-keep-topics"></div>
+                </div>
+                
+                <!-- Part 2&3 新增题 人物类 -->
+                <div class="category-group">
+                    <div class="category-header">👤 Part 2&3 新增题 · 人物类</div>
+                    <button class="category-btn" data-category="people-new">
+                        <span><i class="fas fa-user-plus" style="color: #0F6B6B; margin-right: 8px;"></i>人物类新题 (6)</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </button>
+                    <div class="topic-list" id="people-new-topics"></div>
+                </div>
+                
+                <!-- Part 2&3 新增题 事件类 -->
+                <div class="category-group">
+                    <div class="category-header">🎭 Part 2&3 新增题 · 事件类</div>
+                    <button class="category-btn" data-category="events-new">
+                        <span><i class="fas fa-calendar-plus" style="color: #0F6B6B; margin-right: 8px;"></i>事件类新题 (7)</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </button>
+                    <div class="topic-list" id="events-new-topics"></div>
+                </div>
+                
+                <!-- Part 2&3 新增题 物品类 -->
+                <div class="category-group">
+                    <div class="category-header">📦 Part 2&3 新增题 · 物品类</div>
+                    <button class="category-btn" data-category="objects-new">
+                        <span><i class="fas fa-cube" style="color: #0F6B6B; margin-right: 8px;"></i>物品类新题 (12)</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </button>
+                    <div class="topic-list" id="objects-new-topics"></div>
+                </div>
+                
+                <!-- Part 2&3 新增题 地点类 -->
+                <div class="category-group">
+                    <div class="category-header">📍 Part 2&3 新增题 · 地点类</div>
+                    <button class="category-btn" data-category="places-new">
+                        <span><i class="fas fa-map-pin" style="color: #0F6B6B; margin-right: 8px;"></i>地点类新题 (3)</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </button>
+                    <div class="topic-list" id="places-new-topics"></div>
+                </div>
+                
+                <!-- Part 2&3 保留题 -->
+                <div class="category-group">
+                    <div class="category-header">📌 Part 2&3 保留题 (36)</div>
+                    <button class="category-btn" data-category="part2-keep">
+                        <span><i class="fas fa-archive" style="color: #2A8C8C; margin-right: 8px;"></i>Part 2&3 保留题 (36)</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </button>
+                    <div class="topic-list" id="part2-keep-topics"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="part-selector" id="part-selector">
+                <button class="part-btn active" data-part="part1">Part 1</button>
+                <button class="part-btn" data-part="part2">Part 2</button>
+                <button class="part-btn" data-part="part3">Part 3</button>
+            </div>
+            
+            <div class="timer-section">
+                <div class="timer-container">
+                    <div class="timer-display" id="timer">01:00</div>
+                    <div class="timer-label" id="timer-label">准备时间</div>
+                    <button class="timer-btn" id="start-timer">
+                        <i class="fas fa-play-circle"></i> 开始计时
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card-section">
+                <div class="card-header" id="card-header">
+                    <span>口语话题卡</span>
+                    <span id="topic-badge" class="badge-new">新增题</span>
+                </div>
+                <div class="card-content" id="card-content">
+                    <div class="topic-title" id="current-topic-title">请从左侧选择话题开始练习</div>
+                    <div class="task-instruction" id="current-instruction">选择话题后，这里将显示具体问题</div>
+                    
+                    <div class="question-list" id="question-list" style="display: none;"></div>
+                    
+                    <div class="card-item" id="part2-content" style="display: none;"></div>
+                    
+                    <div class="part3-section" id="part3-section" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Reborn 雅思口语练习系统 &copy; 2026 · 基于2026年1-4月官方完整题库 · 新增题+保留题 共90+话题</p>
+    </div>
+
+    <script>
+        // ---------- 完整题库数据模型 ----------
+        const topicsData = {
+            // ===== Part 1 新增题 =====
+            part1New: [
+                { id: "p1n1", title: "Life stages", batch: "new", part1: { instruction: "Answer the following questions about life stages:", questions: [
+                    "What did you often do with your friends in your childhood?",
+                    "What do you think is the most important at the moment?",
+                    "Do you have any plans for the next five years?",
+                    "How do people remember each stage of their lives?",
+                    "Do you enjoy being the age you are now?",
+                    "At what age do you think people are the happiest?"
+                ]}},
+                { id: "p1n2", title: "Views", batch: "new", part1: { questions: [
+                    "Do you like taking pictures of different views?",
+                    "Do you prefer views in urban areas or rural areas?",
+                    "Do you prefer views in your country or in other countries?"
+                ]}},
+                { id: "p1n3", title: "Scenery", batch: "new", part1: { questions: [
+                    "Do you look out the window at the scenery when travelling by bus or car?",
+                    "Do you prefer the mountains or the sea?",
+                    "Do you like to take scenery pictures?",
+                    "What are the most beautiful sights you have seen while travelling?"
+                ]}},
+                { id: "p1n4", title: "Building", batch: "new", part1: { questions: [
+                    "Are there tall buildings near your home?",
+                    "Do you take photos of buildings?",
+                    "Is there a building that you would like to visit?",
+                    "Do you want to live in a tall building?"
+                ]}},
+                { id: "p1n5", title: "Childhood activities", batch: "new", part1: { questions: [
+                    "What were your favourite activities when you were a child?",
+                    "Did you prefer to do activities alone or with a group of people when you were a child?"
+                ]}},
+                { id: "p1n6", title: "Typing", batch: "new", part1: { questions: [
+                    "Do you prefer typing or handwriting?",
+                    "Do you type on a desktop or laptop keyboard every day?",
+                    "When did you learn how to type on a keyboard?",
+                    "How do you improve your typing?"
+                ]}},
+                { id: "p1n7", title: "Hobby", batch: "new", part1: { questions: [
+                    "Do you have any hobbies?",
+                    "Did you have any hobbies when you were a child?",
+                    "Do you have a hobby that you've had since childhood?",
+                    "Do you have the same hobbies as your family members?"
+                ]}},
+                { id: "p1n8", title: "Morning time", batch: "new", part1: { questions: [
+                    "Do you like getting up early in the morning?",
+                    "What do you usually do in the morning?",
+                    "What did you do in the morning when you were little? Why?",
+                    "Are there any differences between what you do in the morning now and what you did in the past?",
+                    "Do you spend your mornings doing the same things on both weekends and weekdays? Why?"
+                ]}},
+                { id: "p1n9", title: "Gifts", batch: "new", part1: { questions: [
+                    "Have you ever sent handmade gifts to others?",
+                    "Have you ever received a great gift?",
+                    "What do you consider when choosing a gift?",
+                    "Do you think you are good at choosing gifts?",
+                    "What gift have you received recently?"
+                ]}},
+                { id: "p1n10", title: "Reading", batch: "new", part1: { questions: [
+                    "Do you like reading?",
+                    "Do you prefer to read on paper or on a screen?",
+                    "When do you need to read carefully, and when not?",
+                    "Do you prefer scanning or detailed reading?"
+                ]}},
+                { id: "p1n11", title: "Walking", batch: "new", part1: { questions: [
+                    "Do you walk a lot?",
+                    "Did you often go outside to have a walk when you were a child?",
+                    "Why do people like to walk in parks?",
+                    "Where would you like to take a long walk if you had the chance?",
+                    "Where did you go for a walk lately?"
+                ]}},
+                { id: "p1n12", title: "Dreams", batch: "new", part1: { questions: [
+                    "Can you remember the dreams you had?",
+                    "Do you share your dreams with others?",
+                    "Do you think dreams have special meanings?",
+                    "Do you want to make your dreams come true?"
+                ]}},
+                { id: "p1n13", title: "Keys", batch: "new", part1: { questions: [
+                    "Do you always bring a lot of keys with you?",
+                    "Have you ever lost your keys?",
+                    "Do you often forget the keys and lock yourself out?",
+                    "Do you think it's a good idea to leave your keys with a neighbour?"
+                ]}},
+                { id: "p1n14", title: "Sports team", batch: "new", part1: { questions: [
+                    "Have you ever been part of a sports team?",
+                    "Are team sports popular in your culture?",
+                    "Do you like watching team games? Why?",
+                    "What are the differences between team sports and individual sports?"
+                ]}},
+                { id: "p1n15", title: "Pets and animals", batch: "new", part1: { questions: [
+                    "What's your favourite animals? Why?",
+                    "Where do you prefer to keep your pet, indoors or outdoors?",
+                    "Have you ever had a pet before?",
+                    "What is the most popular animal in China?"
+                ]}},
+                { id: "p1n16", title: "Food", batch: "new", part1: { questions: [
+                    "What is your favourite food?",
+                    "What kind of food did you like when you were young?",
+                    "Do you eat different foods at different times of the year?",
+                    "Has your favourite food changed since you were a child?"
+                ]}},
+                { id: "p1n17", title: "Day off", batch: "new", part1: { questions: [
+                    "When was the last time you had a few days off?",
+                    "What do you usually do when you have days off?",
+                    "Do you usually spend your days off with your parents or with your friends?",
+                    "What would you like to do if you had a day off tomorrow?"
+                ]}}
+            ],
+            
+            // ===== Part 1 保留题 =====
+            part1Keep: [
+                { id: "p1k1", title: "Plants", batch: "keep", part1: { questions: [
+                    "Do you keep plants at home?",
+                    "What plant did you grow when you were young?",
+                    "Do you know anything about growing a plant?",
+                    "Do Chinese people send plants as gifts?"
+                ]}},
+                { id: "p1k2", title: "Art", batch: "keep", part1: { questions: [
+                    "Do you like art?",
+                    "Do you like visiting art galleries?",
+                    "Do you want to be an artist?",
+                    "Do you like modern art or traditional art?"
+                ]}},
+                { id: "p1k3", title: "Carrying things", batch: "keep", part1: { questions: [
+                    "What do you often carry with you?",
+                    "What do you do if your item is heavy?"
+                ]}},
+                { id: "p1k4", title: "Quiet/noisy places", batch: "keep", part1: { questions: [
+                    "Do you like quiet or noisy places?",
+                    "Would you like to go to quiet or noisy places on weekends when you are free?"
+                ]}},
+                { id: "p1k5", title: "Public places", batch: "keep", part1: { questions: [
+                    "Have you ever talked with someone you don't know in public places?",
+                    "Do you wear headphones in public places?",
+                    "Would you like to see more public places near where you live?",
+                    "Do you often go to public places with your friends?"
+                ]}},
+                { id: "p1k6", title: "Rules", batch: "keep", part1: { questions: [
+                    "Are there any rules for students at your school?",
+                    "Do you think students would benefit more from more rules?",
+                    "Have you ever had a really dedicated teacher?",
+                    "Do you prefer to have more or fewer rules at school?"
+                ]}},
+                { id: "p1k7", title: "Shoes", batch: "keep", part1: { questions: [
+                    "Do you like buying shoes? How often?",
+                    "Have you ever bought shoes online?",
+                    "How much money do you usually spend on shoes?",
+                    "Which do you prefer, fashionable shoes or comfortable shoes?"
+                ]}},
+                { id: "p1k8", title: "Doing something well", batch: "keep", part1: { questions: [
+                    "Do you have an experience that you did something well?",
+                    "Do you have an experience that your teacher thought you did a good job?",
+                    "Do you often tell your friends when they do something well?"
+                ]}},
+                { id: "p1k9", title: "Staying with old people", batch: "keep", part1: { questions: [
+                    "Have you ever worked with old people?",
+                    "Are you happy to work with people who are older than you?",
+                    "What are the benefits of being friends or working with old people?",
+                    "Do you enjoy spending time with old people?"
+                ]}},
+                { id: "p1k10", title: "Going out", batch: "keep", part1: { questions: [
+                    "Do you bring food or snacks with you when going out?",
+                    "Do you always take your mobile phone with you when going out?",
+                    "Do you often bring cash with you when going out?",
+                    "How often do you use cash?"
+                ]}},
+                { id: "p1k11", title: "Crowded place", batch: "keep", part1: { questions: [
+                    "Is the city where you live crowded?",
+                    "Is there a crowded place near where you live?",
+                    "Do you like crowded places?",
+                    "Do most people like crowded places?",
+                    "When was the last time you were in a crowded place?"
+                ]}},
+                { id: "p1k12", title: "Growing vegetables/fruits", batch: "keep", part1: { questions: [
+                    "Are you interested in growing vegetables and fruits?",
+                    "Is growing vegetables popular in your country?",
+                    "Do many people grow vegetables in your city?",
+                    "Do you think it's easy to grow vegetables?",
+                    "Should schools teach students how to grow vegetables?"
+                ]}},
+                { id: "p1k13", title: "Chatting", batch: "keep", part1: { questions: [
+                    "Do you like chatting with friends?",
+                    "What do you usually chat about with friends?",
+                    "Do you prefer to chat with a group of people or with only one friend?",
+                    "Do you prefer to communicate face-to-face or via social media?",
+                    "Do you argue with friends?"
+                ]}},
+                { id: "p1k14", title: "Borrowing/lending", batch: "keep", part1: { questions: [
+                    "Have you borrowed books from others?",
+                    "Have you ever borrowed money from others?",
+                    "Do you like to lend things to others?",
+                    "How do you feel when people don't return things they borrowed from you?"
+                ]}},
+                { id: "p1k15", title: "Advertisement", batch: "keep", part1: { questions: [
+                    "Is there an advertisement that made an impression on you when you were a child?",
+                    "Do you see a lot of advertising on trains or other transport?",
+                    "Do you like advertisement?",
+                    "What kind of advertising do you like?"
+                ]}},
+                { id: "p1k16", title: "Museum", batch: "keep", part1: { questions: [
+                    "Do you think museums are important?",
+                    "Are there many museums in your hometown?",
+                    "Do you often visit a museum?",
+                    "When was the last time you visited a museum?"
+                ]}},
+                { id: "p1k17", title: "Having a break", batch: "keep", part1: { questions: [
+                    "How often do you take a rest or a break?",
+                    "What do you usually do when you are resting?",
+                    "Do you take a nap when you are taking your rest?",
+                    "How do you feel after taking a nap?"
+                ]}},
+                { id: "p1k18", title: "Sharing", batch: "keep", part1: { questions: [
+                    "Did your parents teach you to share when you were a child?",
+                    "What kind of things do you like to share with others?",
+                    "What kind of things are not suitable for sharing?",
+                    "Do you have anything to share with others recently?",
+                    "Who is the first person you would like to share good news with?",
+                    "What kind of news do you share with your friends?"
+                ]}},
+                { id: "p1k19", title: "Friends", batch: "keep", part1: { questions: [
+                    "Do you have a friend you have known for a long time?",
+                    "What do you usually do with your friends?",
+                    "Where do you often meet each other?",
+                    "Do you often go out with your friends?",
+                    "How important are friends to you?",
+                    "Do you prefer to spend time with one friend or with a group of friends?",
+                    "Would you invite friends to your home?",
+                    "Is there a difference between where you meet friends now and where you used to meet them in the past?",
+                    "Why are some places suitable for meeting while others are not?"
+                ]}},
+                { id: "p1k20", title: "Dream job", batch: "keep", part1: { questions: [
+                    "What was your dream job when you were young?",
+                    "How did you change your mind on your dream job?",
+                    "What do you plan to do in the future?",
+                    "What kinds of jobs are popular in China?",
+                    "Have you had a full-time or part-time job before?"
+                ]}}
+            ],
+            
+            // ===== Part 2&3 新增题 =====
+            peopleNew: [
+                { id: "people-new1", title: "鼓励别人做不愿做的事", batch: "new", part2: { instruction: "Describe a time when you encouraged someone to do something that he/she didn't want to do.", youShouldSay: [
+                    "Who he or she is",
+                    "What you encouraged him/her to do",
+                    "How he/she reacted",
+                    "And explain why you encouraged him/her to do it"
+                ]}, part3: { questions: [
+                    "How can leaders encourage their employees?",
+                    "When should parents encourage their children?",
+                    "What kind of encouragement should parents give?",
+                    "Do you think some people are better than others at persuading?"
+                ]}},
+                { id: "people-new2", title: "乐于助人的人", batch: "new", part2: { instruction: "Describe a person who often helps others.", youShouldSay: [
+                    "Who this person is",
+                    "How often he/she helps others",
+                    "How/why he/she helps others",
+                    "And how you feel about this person"
+                ]}, part3: { questions: [
+                    "Should children help their parents with household chores?",
+                    "What kind of help do people need when looking for a new job?",
+                    "Who should people ask for help, colleagues or family members?"
+                ]}},
+                { id: "people-new3", title: "发挥想象力", batch: "new", part2: { instruction: "Describe a time you needed to use your imagination.", youShouldSay: [
+                    "When it was",
+                    "Why needed to use imagination",
+                    "How difficult or easy it was",
+                    "And explain how you felt about it"
+                ]}, part3: { questions: [
+                    "Do you think adults can have lots of imagination?",
+                    "Do you think imagination is essential for scientists?",
+                    "What kinds of jobs need imagination?",
+                    "What subjects are helpful for children's imagination?"
+                ]}},
+                { id: "people-new4", title: "机智解决问题的人", batch: "new", part2: { instruction: "Describe a person who solved a problem in a smart way.", youShouldSay: [
+                    "Who this person is",
+                    "What the problem was",
+                    "How he/she solved it",
+                    "And explain why you think he/she did it in a smart way"
+                ]}, part3: { questions: [
+                    "Do you think children are born smart or they learn to become smart?",
+                    "How do children become smart at school?",
+                    "Why are some people well-rounded and others only good at one thing?",
+                    "Why does modern society need talents of all kinds?"
+                ]}},
+                { id: "people-new5", title: "鼓励你保护自然的人", batch: "new", part2: { instruction: "Describe a person who encouraged you to protect the nature.", youShouldSay: [
+                    "Who he/she is",
+                    "How he/she encouraged you",
+                    "What he/she encouraged you to do",
+                    "And explain how you feel about this person"
+                ]}, part3: { questions: [
+                    "How can parents teach their children to protect nature?",
+                    "Should schools teach children to get close to nature?",
+                    "Do you think there should be laws to protect nature?"
+                ]}},
+                { id: "people-new6", title: "擅长做计划的人", batch: "new", part2: { instruction: "Describe a person who makes plans a lot and is good at planning.", youShouldSay: [
+                    "Who he/she is",
+                    "How you knew him/her",
+                    "What plans he/she makes",
+                    "And explain how you feel about this person"
+                ]}, part3: { questions: [
+                    "Do you think it's important to plan ahead?",
+                    "What activities do we need to plan ahead?",
+                    "Do you think children should plan their future careers?",
+                    "Should children ask their teachers or parents for advice when making plans?"
+                ]}},
+                { id: "people-new7", title: "喜欢画画的朋友", batch: "new", part2: { instruction: "Describe a friend of yours who loves drawing/painting.", youShouldSay: [
+                    "Who he/she is",
+                    "How you knew him/her",
+                    "How often he/she draws/paints",
+                    "And explain why you think he/she likes drawing"
+                ]}, part3: { questions: [
+                    "What is the right age for a child to learn drawing?",
+                    "Why do most children draw more often than adults do?",
+                    "Why do some people visit galleries or museums instead of viewing artworks online?",
+                    "Do you think galleries and museums should be free of charge?",
+                    "How do artworks inspire people?"
+                ]}},
+                { id: "people-new8", title: "想见的名人", batch: "new", part2: { instruction: "Describe a famous person you would like to meet.", youShouldSay: [
+                    "Who he/she is",
+                    "How you knew him/her",
+                    "How/where you would like to meet him/her",
+                    "And explain why you would like to meet him/her"
+                ]}, part3: { questions: [
+                    "What are the advantages and disadvantages of being a famous child?",
+                    "What can today's children do to become famous?",
+                    "What can children do with their fame?",
+                    "Do people become famous because of their talent?"
+                ]}},
+                { id: "people-new9", title: "让你骄傲的家人", batch: "new", part2: { instruction: "Describe a family member who you are proud of.", youShouldSay: [
+                    "Who this person is",
+                    "How often you spend time together",
+                    "What he/she does that makes you feel proud",
+                    "And explain why you are proud of him/her"
+                ]}, part3: { questions: [
+                    "What would children do to make their parents proud?",
+                    "What did you do to make your parents proud when you were young?",
+                    "What advantages of yours make you proud?",
+                    "When was the last time that you felt proud of yourself?"
+                ]}}
+            ],
+            eventsNew: [
+                { id: "events-new1", title: "花费超过预期的物品", batch: "new", part2: { instruction: "Describe an item on which you spent more than expected.", youShouldSay: [
+                    "What it is",
+                    "How much you spent on it",
+                    "Why you bought it",
+                    "And explain why you think you spent more than expected"
+                ]}, part3: { questions: [
+                    "Do you often buy more than you expected?",
+                    "What do you think young people spend most of their money on?",
+                    "Do you think it is important to save money? Why?",
+                    "Do people buy things they don't need?"
+                ]}},
+                { id: "events-new2", title: "近期观影", batch: "new", part2: { instruction: "Describe a movie you watched and enjoyed recently.", youShouldSay: [
+                    "When and where you watched it",
+                    "Who you watched it with",
+                    "What it was about",
+                    "And explain why you watched this movie"
+                ]}, part3: { questions: [
+                    "What kinds of movies do you think are successful in your country?",
+                    "What are the factors that make a successful movie?",
+                    "Do Chinese people prefer to watch domestic movies or foreign movies?",
+                    "Do you think only well-known directors can create the best movies?"
+                ]}},
+                { id: "events-new3", title: "不享受的音乐活动", batch: "new", part2: { instruction: "Describe a music event that you didn't enjoy.", youShouldSay: [
+                    "What it was",
+                    "Who you went with",
+                    "Why you decided to go there",
+                    "And explain why you didn't enjoy it"
+                ]}, part3: { questions: [
+                    "What kind of music events do people like today?",
+                    "Do you think children should receive some musical education?",
+                    "What are the differences between old and young people's music preferences?",
+                    "What kind of music events are there in your country?"
+                ]}},
+                { id: "events-new4", title: "朋友所学", batch: "new", part2: { instruction: "Describe one of your friends who learned something new (not from a teacher).", youShouldSay: [
+                    "Who he/she is",
+                    "What he/she learned",
+                    "Why he/she learned this",
+                    "And explain whether it would be easier to learn from a teacher"
+                ]}, part3: { questions: [
+                    "Is it necessary to keep learning after graduating from school?",
+                    "Should teachers make learning in their classes fun?",
+                    "Do you think there are too many lessons for students to learn?",
+                    "Is it better to focus on a few subjects or to learn many subjects?"
+                ]}},
+                { id: "events-new5", title: "自行车/摩托车/汽车旅行", batch: "new", part2: { instruction: "Describe a bicycle/motorcycle/car trip you would like to go.", youShouldSay: [
+                    "Who you would like to go with",
+                    "Where you would like to go",
+                    "When you would like to go",
+                    "And explain why you would like to go by bicycle/motorcycle/car"
+                ]}, part3: { questions: [
+                    "Which form of vehicle is more popular in your country, bikes, cars or motorcycles?",
+                    "Do you think air pollution comes mostly from mobile vehicles?",
+                    "Do you think people need to change the way of transportation drastically to protect the environment?",
+                    "How are the transportation systems in urban areas and rural areas different?"
+                ]}},
+                { id: "events-new6", title: "给别人建议", batch: "new", part2: { instruction: "Describe a time when you gave advice to others.", youShouldSay: [
+                    "When it was",
+                    "To whom you gave the advice",
+                    "What the advice was",
+                    "And explain why you gave the advice"
+                ]}, part3: { questions: [
+                    "Should people prepare before giving advice?",
+                    "Is it good to ask advice from strangers online?",
+                    "What are the personalities of people whose job is to give advice to others?",
+                    "What are the problems if you ask too many people for advice?"
+                ]}},
+                { id: "events-new7", title: "微笑的场合", batch: "new", part2: { instruction: "Describe an occasion when many people were smiling.", youShouldSay: [
+                    "When it happened",
+                    "Who you were with",
+                    "What happened",
+                    "And explain why most people were smiling"
+                ]}, part3: { questions: [
+                    "Do you think people who like to smile are more friendly?",
+                    "Why do most people smile in photographs?",
+                    "Do women smile more than men? Why?",
+                    "Do people smile more when they are younger or older?"
+                ]}}
+            ],
+            objectsNew: [
+                { id: "objects-new1", title: "有趣的建筑", batch: "new", part2: { instruction: "Describe an interesting building.", youShouldSay: [
+                    "Where it is",
+                    "What it looks like",
+                    "What function it has",
+                    "And explain why you think it is interesting"
+                ]}, part3: { questions: [
+                    "What types of buildings are popular in your country?",
+                    "Is it worth spending a lot of money on the exterior appearance of a building?",
+                    "Is it more important for a building to look good on the outside or on the inside?",
+                    "Why do people like to visit historical sites?"
+                ]}},
+                { id: "objects-new2", title: "APP/程序", batch: "new", part2: { instruction: "Describe a program or app on your computer or phone.", youShouldSay: [
+                    "What it is",
+                    "When/how you use it",
+                    "Where you found it",
+                    "And explain how you feel about it"
+                ]}, part3: { questions: [
+                    "What are the differences between old and young people when using apps?",
+                    "Why do some people not like using apps?",
+                    "What apps are popular in your country? Why?",
+                    "Should parents limit their children's use of computer programs and computer games? Why and how?"
+                ]}},
+                { id: "objects-new3", title: "最近读过的故事", batch: "new", part2: { instruction: "Describe a story (e.g. a fairy tale) you have read recently.", youShouldSay: [
+                    "What it is about",
+                    "When you read it",
+                    "Whether you liked it",
+                    "And explain what you have learned from it"
+                ]}, part3: { questions: [
+                    "Why do most children like listening to stories before bedtime?",
+                    "Is a good storyline important for a movie?",
+                    "Do you think films with many celebrities are more likely to be popular?",
+                    "What films are popular in China right now?"
+                ]}},
+                { id: "objects-new4", title: "生活中离不开的东西", batch: "new", part2: { instruction: "Describe something that you can't live without (not a computer/phone).", youShouldSay: [
+                    "What it is",
+                    "What you do with it",
+                    "How it helps you in your life",
+                    "And explain why you can't live without it"
+                ]}, part3: { questions: [
+                    "Why are children attracted to new things (such as electronics)?",
+                    "Why do some grown-ups hate to throw out old things (such as clothes)?",
+                    "Is the way people buy things affected? How?",
+                    "What do you think influences people to buy new things?",
+                    "Why do all children like toys?",
+                    "Do you think it is good for a child to always take his or her favourite toy with them?"
+                ]}},
+                { id: "objects-new5", title: "禁用手机的场合", batch: "new", part2: { instruction: "Describe an occasion when you were not allowed to use your mobile phone.", youShouldSay: [
+                    "When it was",
+                    "Where it was",
+                    "Why you were not allowed to use your mobile phone",
+                    "And how you felt about it"
+                ]}, part3: { questions: [
+                    "How do young and old people use mobile phones differently?",
+                    "What positive and negative impact do mobile phones have on friendship?",
+                    "Is it a waste of time to take pictures with mobile phones?",
+                    "Do you think it is necessary to have laws on the use of mobile phones?"
+                ]}},
+                { id: "objects-new6", title: "完美工作", batch: "new", part2: { instruction: "Describe your perfect job.", youShouldSay: [
+                    "What it is",
+                    "Where you heard about it from",
+                    "What you need to learn to get the job",
+                    "And explain why you think it is your perfect job"
+                ]}, part3: { questions: [
+                    "What kind of job can be called a dream job?",
+                    "What jobs do children want to do when they grow up?",
+                    "What should people consider when choosing jobs?",
+                    "Is salary the main reason people choose a certain job?"
+                ]}},
+                { id: "objects-new7", title: "让你失望的电影", batch: "new", part2: { instruction: "Describe a movie you watched recently that you felt disappointed about.", youShouldSay: [
+                    "When it was",
+                    "Why you didn't like it",
+                    "Why you decided to watch it",
+                    "And explain why you felt disappointed about it"
+                ]}, part3: { questions: [
+                    "Do you believe movie reviews?",
+                    "What are the different types of films in your country?",
+                    "Are historical films popular in your country? Why?",
+                    "Do you think films with famous actors or actresses are more likely to become successful films?",
+                    "Why are Japanese animated films so popular?",
+                    "Should the director pay a lot of money to famous actor?"
+                ]}}
+            ],
+            placesNew: [
+                { id: "places-new1", title: "外国的短期停留", batch: "new", part2: { instruction: "Describe a foreign country you would like to stay or work for a short period of time.", youShouldSay: [
+                    "Which country it is",
+                    "Where you got to know this country",
+                    "What you will do there",
+                    "Why you will stay or work there just for a short period of time"
+                ]}, part3: { questions: [
+                    "Why do people sometimes go to other cities or other countries to travel?"
+                ]}},
+                { id: "places-new2", title: "商场", batch: "new", part2: { instruction: "Describe a shopping mall.", youShouldSay: [
+                    "What its name is",
+                    "Where it is",
+                    "How often you visit it",
+                    "And what you usually buy at the mall"
+                ]}, part3: { questions: [
+                    "Why do people buy things they don't need?",
+                    "Do you think it's a waste of time to go shopping?",
+                    "Why are some people keen on shopping?",
+                    "What kind of people like shopping?"
+                ]}},
+                { id: "places-new3", title: "家里放松的地方", batch: "new", part2: { instruction: "Describe your favorite place in your house where you can relax.", youShouldSay: [
+                    "Where it is",
+                    "What it is like",
+                    "What you enjoy doing there",
+                    "And explain why you feel relaxed at this place"
+                ]}, part3: { questions: [
+                    "Why is it difficult for some people to relax?",
+                    "What are the benefits of doing exercise?",
+                    "Do people in your country exercise after work?",
+                    "What is the place where people spend most of their time at home?",
+                    "Do you think there should be classes for training young people and children how to relax?",
+                    "Which is more important, mental relaxation or physical relaxation?"
+                ]}}
+            ],
+            
+            // ===== Part 2&3 保留题 =====
+            part2Keep: [
+                { id: "p2k1", title: "想去的多树之地", batch: "keep", part2: { instruction: "Describe a place with a lot of trees that you would like to visit.", youShouldSay: [
+                    "Where it is",
+                    "How you knew this place",
+                    "What it is like",
+                    "And explain why you would like to visit it"
+                ]}, part3: { questions: [
+                    "Why do people like visiting places with trees or forests?",
+                    "Are natural views better than city views?",
+                    "Do all people need some nature?",
+                    "Are people hard-wired to protect environment?"
+                ]}},
+                { id: "p2k2", title: "擅长音乐的朋友", batch: "keep", part2: { instruction: "Describe a friend of yours who is good at music/singing.", youShouldSay: [
+                    "Who he/she is",
+                    "When/where you listen to his/her music/singing",
+                    "What kind of music/songs he/she is good at",
+                    "And explain how you feel when listening to his music/singing"
+                ]}, part3: { questions: [
+                    "What kind of music is popular in your country?",
+                    "What kind of music do young people like?",
+                    "Do you think music is beneficial for children at school?",
+                    "What are the benefits of children learning a musical instrument?",
+                    "Do you know what kind of music children like today?",
+                    "Do you think the government should invest more money on concerts?"
+                ]}},
+                { id: "p2k3", title: "告诉朋友实情", batch: "keep", part2: { instruction: "Describe a time when you told your friend an important truth.", youShouldSay: [
+                    "Who your friend is",
+                    "What the truth was",
+                    "What your friend's reaction was",
+                    "And explain why you think it was important to tell your friend the truth"
+                ]}, part3: { questions: [
+                    "Do you think it's more important to win a game or follow the rules in sports?",
+                    "Sometimes people should tell lies. Do you agree?",
+                    "How do you know when others are telling lies?",
+                    "Do you think we should tell the truth at all times?"
+                ]}},
+                { id: "p2k4", title: "想多了解的野生动物", batch: "keep", part2: { instruction: "Describe a wild animal that you want to know more about.", youShouldSay: [
+                    "What it is",
+                    "When/where you saw it",
+                    "Why you want to know more about it",
+                    "And explain what you want to know more about it"
+                ]}, part3: { questions: [
+                    "Why should we protect wild animals?",
+                    "Why are some people more willing to protect wild animals than others?",
+                    "Do you think it's important to take children to the zoo to see animals?",
+                    "Why do people attach more importance to protecting rare animals?",
+                    "Should people educate children to protect wild animals?",
+                    "Is it more important to protect wild animals or the environment?"
+                ]}},
+                { id: "p2k5", title: "重要的好朋友", batch: "keep", part2: { instruction: "Describe a good friend who is important to you.", youShouldSay: [
+                    "Who he/she is",
+                    "How/Where you got to know him/her",
+                    "How long you have known each other",
+                    "And explain why he/she is important to you"
+                ]}, part3: { questions: [
+                    "How do children make friends at school?",
+                    "How do children make friends when they are not at school?",
+                    "Do you think it is better for children to have a few close friends or many casual friends?",
+                    "Do you think a child's relationship with friends can be replaced by that with other people, like parents or other family members?",
+                    "What are the differences between friends made inside and outside the workplace?",
+                    "Do you think it's possible for bosses and their employees to become friends?"
+                ]}},
+                { id: "p2k6", title: "迷路", batch: "keep", part2: { instruction: "Describe an occasion when you lost your way.", youShouldSay: [
+                    "Where you were",
+                    "What happened",
+                    "How you felt",
+                    "And explain how you found your way"
+                ]}, part3: { questions: [
+                    "Why do some people get lost more easily than others?",
+                    "Do you think it is important to be able to read a map?",
+                    "Do you think it is important to do some preparation before you travel to new places?",
+                    "How can people find their way when they are lost?",
+                    "Is a paper map still necessary?",
+                    "How do people react when they get lost?"
+                ]}},
+                { id: "p2k7", title: "想再去的旅行", batch: "keep", part2: { instruction: "Describe a trip you would like to make again.", youShouldSay: [
+                    "Where and when you went",
+                    "Who you made the trip with",
+                    "What you did during the trip",
+                    "And explain why you would like to make the trip again"
+                ]}, part3: { questions: [
+                    "Why do people like travelling?",
+                    "What should we prepare before a trip?",
+                    "What would happen if no preparation were made before the trip?",
+                    "Why do some people prefer to travel in their own country rather than going abroad?"
+                ]}},
+                { id: "p2k8", title: "在家族企业工作的人", batch: "keep", part2: { instruction: "Describe a person you know who enjoys working for a family business.", youShouldSay: [
+                    "Who he/she is",
+                    "What the business is",
+                    "What his/her job is",
+                    "And explain why he/she enjoys working there"
+                ]}, part3: { questions: [
+                    "Would you like to start a family business?",
+                    "Would you like to work in a family business?",
+                    "Why do some people choose to start their own company?",
+                    "What are the advantages and disadvantages of family businesses?",
+                    "What family business do you know in your local area?",
+                    "What makes a successful family business?"
+                ]}},
+                { id: "p2k9", title: "想提升的天赋", batch: "keep", part2: { instruction: "Describe a natural talent (sports, music, etc.) you want to improve.", youShouldSay: [
+                    "What it is",
+                    "When you discovered it",
+                    "How you want to improve it",
+                    "And how you feel about it"
+                ]}, part3: { questions: [
+                    "Do you think artists with talents should focus on their talents?",
+                    "Is it possible for us to know whether children who are 3 or 4 years old will become musicians and painters when they grow up?",
+                    "Why do people like to watch talent show?",
+                    "Do you think it is more interesting to watch famous people's or ordinary people's shows?"
+                ]}},
+                { id: "p2k10", title: "和亲友享受的晚餐", batch: "keep", part2: { instruction: "Describe a great dinner you and your friends or family members enjoyed.", youShouldSay: [
+                    "What you had",
+                    "Who you had the dinner with",
+                    "What you talked about during the dinner",
+                    "And explain why you enjoyed it"
+                ]}, part3: { questions: [
+                    "Do people prefer to eat out at restaurants or eat at home during the Spring Festival?",
+                    "What food do you eat on special occasions, like during the Spring Festival or the Mid-autumn Festival?",
+                    "Why do people like to have meals together during important festivals?",
+                    "Is it a hassle to prepare a meal at home?",
+                    "What do people often talk about during meals?",
+                    "People are spending less and less time having meals with their families these days. Is this good or bad?"
+                ]}},
+                { id: "p2k11", title: "远行", batch: "keep", part2: { instruction: "Describe a long journey you had.", youShouldSay: [
+                    "Where you went",
+                    "Who you had the journey with",
+                    "Why you had the journey",
+                    "And explain how you felt about the journey"
+                ]}, part3: { questions: [
+                    "Do you think it is a good choice to travel by plane?",
+                    "What are the differences between group travelling and travelling alone?",
+                    "What do we need to prepare for a long journey?",
+                    "Why do some people like making long journeys?",
+                    "Why do some people prefer to travel in their own country?",
+                    "Why do some people prefer to travel abroad?"
+                ]}},
+                { id: "p2k12", title: "传统故事", batch: "keep", part2: { instruction: "Describe an interesting traditional story.", youShouldSay: [
+                    "What the story is about",
+                    "When/how you knew it",
+                    "Who told you the story",
+                    "And explain how you felt when you first heard it"
+                ]}, part3: { questions: [
+                    "What kind of stories do children like?",
+                    "What are the benefits of bedtime stories for children?",
+                    "Why do most children like listening to stories before bedtime?",
+                    "What can children learn from stories?",
+                    "Do all stories for children have happy endings?",
+                    "Is a good storyline important for a movie?"
+                ]}},
+                { id: "p2k13", title: "突然停电", batch: "keep", part2: { instruction: "Describe a time when the electricity suddenly went off.", youShouldSay: [
+                    "When/where it happened",
+                    "How long it lasted",
+                    "What you did during that time",
+                    "And explain how you felt about it"
+                ]}, part3: { questions: [
+                    "Which is better, electric bicycles or ordinary bicycles?",
+                    "Do you think electric bicycles will replace ordinary bicycles in the future?",
+                    "Which is better, electric cars or petrol cars?",
+                    "How did people manage to live without electricity in the ancient world?",
+                    "Is it difficult for the government to replace all the petrol cars with electric cars?"
+                ]}},
+                { id: "p2k14", title: "别人向你道歉", batch: "keep", part2: { instruction: "Describe a time when someone apologized to you.", youShouldSay: [
+                    "When it was",
+                    "Who this person is",
+                    "Why he or she apologized to you",
+                    "And how you felt about it"
+                ]}, part3: { questions: [
+                    "Do you think people should apologize for anything wrong they do?",
+                    "Do people in your country like to say 'sorry'?",
+                    "On what occasion do people usually apologize to others?",
+                    "Why do some people refuse to say 'sorry' to others?"
+                ]}},
+                { id: "p2k15", title: "学习朋友好习惯", batch: "keep", part2: { instruction: "Describe a good habit your friend has and you want to develop.", youShouldSay: [
+                    "Who your friend is",
+                    "What habit he/she has",
+                    "When you noticed this habit",
+                    "And explain why you want to develop this habit"
+                ]}, part3: { questions: [
+                    "What habits should children have?",
+                    "What should parents do to teach their children good habits?",
+                    "What influences do children with bad habits have on other children?",
+                    "Why do some habits change when people get older?"
+                ]}},
+                { id: "p2k16", title: "第一次尝试的兴奋活动", batch: "keep", part2: { instruction: "Describe an exciting activity you have tried for the first time.", youShouldSay: [
+                    "What it is",
+                    "When/where you did it",
+                    "Why you thought it was exciting",
+                    "And explain how you felt about it"
+                ]}, part3: { questions: [
+                    "Why are some people unwilling to try new things?",
+                    "Do you think fear stops people from trying new things?",
+                    "Why are some people keen on doing dangerous activities?",
+                    "Do you think that children adapt to new things more easily than adults?",
+                    "What can people learn from doing dangerous activities?"
+                ]}},
+                { id: "p2k17", title: "钦佩的创作者", batch: "keep", part2: { instruction: "Describe a creative person (e.g. an artist, a musician) you admire.", youShouldSay: [
+                    "Who he/she is",
+                    "How you knew him/her",
+                    "What his/her greatest achievement is",
+                    "And explain why you think he/she is creative"
+                ]}, part3: { questions: [
+                    "Do you think children should learn to play musical instruments?",
+                    "How do artists acquire inspiration?",
+                    "Do you think pictures and videos in news reports are important?",
+                    "What can we do to help children keep creative?",
+                    "How does drawing help to enhance children's creativity?",
+                    "What kind of jobs require creativity?"
+                ]}},
+                { id: "p2k18", title: "家中老物件", batch: "keep", part2: { instruction: "Describe an important old thing that your family has kept for a long time.", youShouldSay: [
+                    "What it is",
+                    "How/when your family first got this thing",
+                    "How long your family has kept it",
+                    "And explain why this thing is important to your family"
+                ]}, part3: { questions: [
+                    "What kind of old things do people like to keep?",
+                    "Why do people keep old things?",
+                    "What are the differences between the things old people keep and those young people keep?",
+                    "What are the differences between the things that people keep today and the things that people kept in the past?"
+                ]}},
+                { id: "p2k19", title: "第一次用外语", batch: "keep", part2: { instruction: "Describe a time when you first talked in a foreign language.", youShouldSay: [
+                    "Where you were",
+                    "Who you were with",
+                    "What you talked about",
+                    "And explain how you felt about it"
+                ]}, part3: { questions: [
+                    "At what age should children start learning a foreign language?",
+                    "Which skill is more important, speaking or writing?",
+                    "Does a person still need to learn other languages, if he or she is good at English?",
+                    "Do you think minority languages will disappear?"
+                ]}},
+                { id: "p2k20", title: "社交媒体趣事", batch: "keep", part2: { instruction: "Describe a time you saw something interesting on social media.", youShouldSay: [
+                    "When it was",
+                    "Where you saw it",
+                    "What you saw",
+                    "And explain why you think it was interesting"
+                ]}, part3: { questions: [
+                    "Why do people like to use social media?",
+                    "What kinds of things are popular on social media?",
+                    "What are the advantages and disadvantages of using social media?",
+                    "What do you think of making friends on social network?"
+                ]}},
+                { id: "p2k21", title: "弄坏东西", batch: "keep", part2: { instruction: "Describe a time when you broke something.", youShouldSay: [
+                    "What it was",
+                    "When/where that happened",
+                    "How you broke it",
+                    "And explain what you did after that"
+                ]}, part3: { questions: [
+                    "What kind of things are more likely to be broken by people at home?",
+                    "What kind of people like to fix things by themselves?",
+                    "Do you think clothes produced in the factory are of better quality than those made by hand?",
+                    "Do you think handmade clothes are more valuable?"
+                ]}},
+                { id: "p2k22", title: "感兴趣的科学学科", batch: "keep", part2: { instruction: "Describe an area/subject of science that you are interested in.", youShouldSay: [
+                    "Which area/subject it is",
+                    "When and where you came to know this area/subject",
+                    "How you get information about this area/subject",
+                    "And explain why you are interested in this area/subject"
+                ]}, part3: { questions: [
+                    "Why do some children not like learning science at school?",
+                    "Is it important to study science at school?",
+                    "Which science subject is the most important for children to learn?",
+                    "Should people continue to study science after graduating from school?",
+                    "How do you get to know about scientific news?",
+                    "Should scientists explain the research process to the public?"
+                ]}},
+                { id: "p2k23", title: "有用的书", batch: "keep", part2: { instruction: "Describe a book you read that you found useful.", youShouldSay: [
+                    "What it is",
+                    "When you read it",
+                    "Why you think it is useful",
+                    "And explain how you felt about it"
+                ]}, part3: { questions: [
+                    "What are the types of books that young people like to read?",
+                    "What's the difference between the reading habits of old people and young people?",
+                    "What's the difference between paper books and e-books?",
+                    "Some people say that it is easier for children who start reading from a young age to succeed. Do you agree?"
+                ]}},
+                { id: "p2k24", title: "钦佩的运动员", batch: "keep", part2: { instruction: "Describe a successful sportsperson you admire.", youShouldSay: [
+                    "Who he/she is",
+                    "What you know about him/her",
+                    "What he/she is like in real life",
+                    "What achievement he/she has made",
+                    "And explain why you admire him/her"
+                ]}, part3: { questions: [
+                    "Should students have physical education and do sports at school?",
+                    "What qualities should an athlete have?",
+                    "Is talent important in sports?",
+                    "Is it easy to identify children's talents?",
+                    "What is the most popular sport in your country?",
+                    "Why are there so few top athletes?"
+                ]}},
+                { id: "p2k25", title: "童年喜欢的玩具", batch: "keep", part2: { instruction: "Describe a toy you liked in your childhood.", youShouldSay: [
+                    "What kind of toy it is",
+                    "When you received it",
+                    "How you played it",
+                    "And how you felt about it"
+                ]}, part3: { questions: [
+                    "How do advertisements influence children?",
+                    "Should advertising aimed at kids be prohibited?",
+                    "What's the difference between the toys kids play now and those they played in the past?",
+                    "Do you think parents should buy more toys for their kids or spend more time with them?",
+                    "What's the difference between the toys boys play with and girls play with?",
+                    "What are the advantages and disadvantages of modern toys?"
+                ]}},
+                { id: "p2k26", title: "别人帮忙下做的决定", batch: "keep", part2: { instruction: "Describe an important decision made with the help of other people.", youShouldSay: [
+                    "What the decision was",
+                    "Why you made the decision",
+                    "Who helped you make the decision",
+                    "And how you felt about it"
+                ]}, part3: { questions: [
+                    "What kind of decision do you think are meaningful?",
+                    "What important decisions should be made by teenagers themselves?",
+                    "Why are some people unwilling to make quick decisions?",
+                    "Do people like to ask for advice about their personal life or their work?",
+                    "Why do people like to ask others for advice?"
+                ]}},
+                { id: "p2k27", title: "旅途中的有趣建筑", batch: "keep", part2: { instruction: "Describe an interesting building you saw during a trip.", youShouldSay: [
+                    "Where you saw it",
+                    "What it looks like",
+                    "What you have know about it",
+                    "And explain why you think it is interesting"
+                ]}, part3: { questions: [
+                    "Should all scenic spots charge an entry fee?",
+                    "Is visiting scenic spots the best choice for us while travelling?",
+                    "Why do some people like to live in big cities?",
+                    "Is it necessary for tourists to go to visit landmarks when travelling in a place?",
+                    "Which do most people prefer, living in a bungalow or in a tall building?"
+                ]}},
+                { id: "p2k28", title: "等待特别事情", batch: "keep", part2: { instruction: "Describe a time when you waited for something special.", youShouldSay: [
+                    "What you waited for",
+                    "How long you waited",
+                    "What you did while waiting",
+                    "And explain why it was special"
+                ]}, part3: { questions: [
+                    "Why do we need to be patient?",
+                    "In what situations do we need to be more patient? Why?",
+                    "Do you think we should be patient all the time?"
+                ]}},
+                { id: "p2k29", title: "演讲经历", batch: "keep", part2: { instruction: "Describe a talk you gave to a group of people.", youShouldSay: [
+                    "Who you gave the talk to",
+                    "What the talk was about",
+                    "Why you gave the talk",
+                    "And explain how you felt about the talk"
+                ]}, part3: { questions: [
+                    "What benefits does the interest bring to communication?",
+                    "Which one is better, being a communicator or a listener?",
+                    "What qualities does a person need to have to be a good communicator?",
+                    "What qualities do people need to speak in public?",
+                    "How important is it to be a good listener when communicating?",
+                    "What kinds of people often give speeches?"
+                ]}},
+                { id: "p2k30", title: "水上运动", batch: "keep", part2: { instruction: "Describe a water sport you would like to try in the future.", youShouldSay: [
+                    "What it is",
+                    "Where you would like to try it",
+                    "Whether it is difficult",
+                    "And explain why you would like to try it"
+                ]}, part3: { questions: [
+                    "Do you think it is good to teach swimming in school?",
+                    "What kinds of water sports are popular nowadays?",
+                    "Why do people like to live near water?",
+                    "What are the advantages of water transportation?",
+                    "What do you think of the people who waste water?",
+                    "What are the characteristics of goods transported by water?"
+                ]}},
+                { id: "p2k31", title: "近期日常改变", batch: "keep", part2: { instruction: "Describe a positive change that you have made recently in your daily routine.", youShouldSay: [
+                    "What the change is",
+                    "How you have changed the routine",
+                    "Why you think it is a positive change",
+                    "And explain how you feel about the change"
+                ]}, part3: { questions: [
+                    "What do people normally plan in their daily lives?",
+                    "Is time management very important in our daily lives?",
+                    "What changes would people often make?",
+                    "Do you think it is good to change jobs frequently?",
+                    "Who do you think would make changes more often, young people or old people?",
+                    "Who should get more promotion opportunities in the workplace, young people or older people?"
+                ]}},
+                { id: "p2k32", title: "购物服务", batch: "keep", part2: { instruction: "Describe a time when you received good service in a shop/store.", youShouldSay: [
+                    "Where the shop is",
+                    "When you went to the shop",
+                    "What service you received from the staff",
+                    "And explain how you felt about the service"
+                ]}, part3: { questions: [
+                    "Why are shopping malls so popular in China?",
+                    "What are the advantages and disadvantages of shopping in small shops?",
+                    "Why do some people not like shopping in small shops?",
+                    "What are the differences between online shopping and in-store shopping?",
+                    "What are the advantages and disadvantages of shopping online?",
+                    "Can consumption drive economic growth?"
+                ]}},
+                { id: "p2k33", title: "自然之地", batch: "keep", part2: { instruction: "Describe a natural place (e.g. parks, mountains).", youShouldSay: [
+                    "Where this place is",
+                    "How you knew this place",
+                    "What it is like",
+                    "And explain why you like to visit it"
+                ]}, part3: { questions: [
+                    "What kind of people like to visit natural places?",
+                    "What are the differences between a natural place and a city?",
+                    "Do you think that going to the park is the only way to get close to nature?",
+                    "What can people gain from going to natural places?",
+                    "Are there any wild animals in the city?",
+                    "Do you think it is a good idea to let animals stay in local parks for people to see?"
+                ]}},
+                { id: "p2k34", title: "有用的发明", batch: "keep", part2: { instruction: "Describe an invention that is useful in your daily life.", youShouldSay: [
+                    "What the invention is",
+                    "What it can do",
+                    "How popular it is",
+                    "Whether it is difficult or easy to use",
+                    "And explain why it is useful"
+                ]}, part3: { questions: [
+                    "What qualities do inventors have?",
+                    "Do you think only scientists can invent new things?",
+                    "What inventions do you think should be improved?",
+                    "Are there any other inventions that make the world better?",
+                    "Do all inventions bring benefits to our world?",
+                    "Who should support and sponsor inventors, governments, or private companies?"
+                ]}},
+                { id: "p2k35", title: "受欢迎的人", batch: "keep", part2: { instruction: "Describe a popular person.", youShouldSay: [
+                    "Who this person is",
+                    "What kind of person he or she is",
+                    "When you see him/her normally",
+                    "And explain why you think this person is popular"
+                ]}, part3: { questions: [
+                    "Why are some students popular in school?",
+                    "Is it important for a teacher to be popular?",
+                    "Do you think good teachers are always popular among students?",
+                    "What are the qualities of being a good teacher?",
+                    "Is it easier to become popular nowadays?",
+                    "Why do people want to be popular?"
+                ]}},
+                { id: "p2k36", title: "不寻常的一餐", batch: "keep", part2: { instruction: "Describe an unusual meal you had.", youShouldSay: [
+                    "When you had it",
+                    "Where you had it",
+                    "Whom you had it with",
+                    "And explain why it was unusual"
+                ]}, part3: { questions: [
+                    "What are the advantages and disadvantages of eating in restaurants?",
+                    "What fast food restaurants are there in your country?",
+                    "Do people eat fast food at home?",
+                    "Why do some people choose to eat out instead of ordering takeout?",
+                    "Do people in your country socialize in restaurants?",
+                    "Do people in your country value food culture?"
+                ]}}
+            ]
+        };
+
+        // ---------- 全局变量 ----------
+        let currentPart = "part1";
+        let currentTopic = null;
+        let timerInterval;
+        let timerSeconds = 0;
+        let isTimerRunning = false;
+        let isPart2Timer = false;
+
+        // ---------- 初始化页面 ----------
+        document.addEventListener('DOMContentLoaded', function() {
+            initTopicLists();
+            setupCategoryButtons();
+            setupPartSelector();
+            setupTimerButton();
+            setupSearch();
+            
+            // 默认选中第一个新题
+            const firstNewTopic = document.querySelector('#part1-new-topics .topic-item');
+            if (firstNewTopic) {
+                firstNewTopic.classList.add('active');
+                const topicId = firstNewTopic.getAttribute('data-id');
+                findAndShowTopic(topicId);
+            }
+        });
+
+        // ---------- 初始化所有题目列表 ----------
+        function initTopicLists() {
+            // Part 1 新增题
+            const p1NewList = document.getElementById('part1-new-topics');
+            topicsData.part1New.forEach(topic => {
+                const item = createTopicItem(topic);
+                p1NewList.appendChild(item);
+            });
+
+            // Part 1 保留题
+            const p1KeepList = document.getElementById('part1-keep-topics');
+            topicsData.part1Keep.forEach(topic => {
+                const item = createTopicItem(topic);
+                p1KeepList.appendChild(item);
+            });
+
+            // 人物类新题
+            const peopleNewList = document.getElementById('people-new-topics');
+            topicsData.peopleNew.forEach(topic => {
+                const item = createTopicItem(topic);
+                peopleNewList.appendChild(item);
+            });
+
+            // 事件类新题
+            const eventsNewList = document.getElementById('events-new-topics');
+            topicsData.eventsNew.forEach(topic => {
+                const item = createTopicItem(topic);
+                eventsNewList.appendChild(item);
+            });
+
+            // 物品类新题
+            const objectsNewList = document.getElementById('objects-new-topics');
+            topicsData.objectsNew.forEach(topic => {
+                const item = createTopicItem(topic);
+                objectsNewList.appendChild(item);
+            });
+
+            // 地点类新题
+            const placesNewList = document.getElementById('places-new-topics');
+            topicsData.placesNew.forEach(topic => {
+                const item = createTopicItem(topic);
+                placesNewList.appendChild(item);
+            });
+
+            // Part 2&3 保留题
+            const p2KeepList = document.getElementById('part2-keep-topics');
+            topicsData.part2Keep.forEach(topic => {
+                const item = createTopicItem(topic);
+                p2KeepList.appendChild(item);
+            });
+        }
+
+        function createTopicItem(topic) {
+            const div = document.createElement('div');
+            div.className = 'topic-item';
+            div.textContent = topic.title;
+            div.setAttribute('data-id', topic.id);
+            div.addEventListener('click', function(e) {
+                document.querySelectorAll('.topic-item').forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+                findAndShowTopic(this.getAttribute('data-id'));
+            });
+            return div;
+        }
+
+        function findAndShowTopic(topicId) {
+            // 在所有分类中查找
+            const allTopics = [
+                ...topicsData.part1New,
+                ...topicsData.part1Keep,
+                ...topicsData.peopleNew,
+                ...topicsData.eventsNew,
+                ...topicsData.objectsNew,
+                ...topicsData.placesNew,
+                ...topicsData.part2Keep
+            ];
+            const topic = allTopics.find(t => t.id === topicId);
+            if (topic) {
+                currentTopic = topic;
+                
+                // 更新badge
+                const badge = document.getElementById('topic-badge');
+                if (topic.batch === 'new') {
+                    badge.className = 'badge-new';
+                    badge.textContent = '新增题';
+                } else {
+                    badge.className = 'badge-keep';
+                    badge.textContent = '保留题';
+                }
+                
+                // 根据当前选择的part显示内容
+                if (currentPart === "part1" && topic.part1) {
+                    showPart1(topic);
+                } else if (currentPart === "part2" && topic.part2) {
+                    showPart2(topic);
+                } else if (currentPart === "part3" && topic.part3) {
+                    showPart3(topic);
+                } else {
+                    // 如果当前part没有对应内容，自动切换到有内容的part
+                    if (topic.part1) {
+                        document.querySelector(`.part-btn[data-part="part1"]`).click();
+                    } else if (topic.part2) {
+                        document.querySelector(`.part-btn[data-part="part2"]`).click();
+                    } else if (topic.part3) {
+                        document.querySelector(`.part-btn[data-part="part3"]`).click();
+                    }
+                }
+                
+                resetTimerForCurrentPart();
+            }
+        }
+
+        function showPart1(topic) {
+            document.getElementById('current-topic-title').textContent = topic.title;
+            document.getElementById('current-instruction').textContent = topic.part1.instruction || "Answer the following questions:";
+            
+            document.getElementById('question-list').style.display = 'block';
+            document.getElementById('part2-content').style.display = 'none';
+            document.getElementById('part3-section').style.display = 'none';
+            
+            const qList = document.getElementById('question-list');
+            qList.innerHTML = '';
+            topic.part1.questions.forEach((q, idx) => {
+                const div = document.createElement('div');
+                div.className = 'question-item';
+                div.innerHTML = `<strong>${idx+1}.</strong> ${q}`;
+                qList.appendChild(div);
+            });
+        }
+
+        function showPart2(topic) {
+            document.getElementById('current-topic-title').textContent = topic.title;
+            document.getElementById('current-instruction').textContent = topic.part2.instruction;
+            
+            document.getElementById('question-list').style.display = 'none';
+            document.getElementById('part2-content').style.display = 'block';
+            document.getElementById('part3-section').style.display = 'none';
+            
+            const p2Content = document.getElementById('part2-content');
+            p2Content.innerHTML = `
+                <h3>Part 2 - You should say:</h3>
+                <ul>
+                    ${topic.part2.youShouldSay.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        function showPart3(topic) {
+            document.getElementById('current-topic-title').textContent = topic.title;
+            document.getElementById('current-instruction').textContent = "Answer the follow-up questions:";
+            
+            document.getElementById('question-list').style.display = 'none';
+            document.getElementById('part2-content').style.display = 'none';
+            document.getElementById('part3-section').style.display = 'block';
+            
+            const p3Section = document.getElementById('part3-section');
+            p3Section.innerHTML = `
+                <h3>Part 3 - Follow-up Questions:</h3>
+                <ul>
+                    ${topic.part3.questions.map((q, i) => `<li>${i+1}. ${q}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        function setupCategoryButtons() {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    const targetList = document.getElementById(`${category}-topics`);
+                    
+                    // 切换箭头图标
+                    const icon = this.querySelector('.fa-chevron-down, .fa-chevron-up');
+                    if (targetList.classList.contains('active')) {
+                        targetList.classList.remove('active');
+                        if (icon) {
+                            icon.className = 'fas fa-chevron-down icon';
+                        }
+                    } else {
+                        targetList.classList.add('active');
+                        if (icon) {
+                            icon.className = 'fas fa-chevron-up icon';
+                        }
+                    }
+                });
+            });
+        }
+
+        function setupPartSelector() {
+            document.querySelectorAll('.part-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const part = this.getAttribute('data-part');
+                    document.querySelectorAll('.part-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    currentPart = part;
+                    
+                    if (currentTopic) {
+                        if (part === "part1" && currentTopic.part1) {
+                            showPart1(currentTopic);
+                        } else if (part === "part2" && currentTopic.part2) {
+                            showPart2(currentTopic);
+                        } else if (part === "part3" && currentTopic.part3) {
+                            showPart3(currentTopic);
+                        }
+                    }
+                    
+                    resetTimerForCurrentPart();
+                });
+            });
+        }
+
+        function setupTimerButton() {
+            document.getElementById('start-timer').addEventListener('click', toggleTimer);
+        }
+
+        function resetTimerForCurrentPart() {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            
+            if (currentPart === "part2") {
+                timerSeconds = 60;
+                document.getElementById('timer').textContent = "01:00";
+                document.getElementById('timer-label').textContent = "准备时间";
+                isPart2Timer = true;
+            } else {
+                timerSeconds = 0;
+                document.getElementById('timer').textContent = "00:00";
+                document.getElementById('timer-label').textContent = "答题时间";
+                isPart2Timer = false;
+            }
+            
+            document.getElementById('start-timer').innerHTML = '<i class="fas fa-play-circle"></i> 开始计时';
+        }
+
+        function toggleTimer() {
+            if (isTimerRunning) {
+                clearInterval(timerInterval);
+                isTimerRunning = false;
+                document.getElementById('start-timer').innerHTML = '<i class="fas fa-play-circle"></i> 开始计时';
+            } else {
+                isTimerRunning = true;
+                document.getElementById('start-timer').innerHTML = '<i class="fas fa-pause-circle"></i> 暂停计时';
+                
+                timerInterval = setInterval(() => {
+                    if (currentPart === "part2" && isPart2Timer) {
+                        timerSeconds--;
+                        if (timerSeconds <= 0) {
+                            isPart2Timer = false;
+                            timerSeconds = 0;
+                            document.getElementById('timer-label').textContent = "答题时间";
+                        }
+                    } else {
+                        timerSeconds++;
+                    }
+                    
+                    const mins = Math.floor(timerSeconds / 60);
+                    const secs = timerSeconds % 60;
+                    document.getElementById('timer').textContent = 
+                        `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                }, 1000);
+            }
+        }
+
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function(e) {
+                const keyword = e.target.value.toLowerCase().trim();
+                
+                if (keyword === '') {
+                    // 恢复显示所有题目
+                    document.querySelectorAll('.topic-item').forEach(item => {
+                        item.style.display = 'block';
+                    });
+                    return;
+                }
+                
+                // 搜索匹配的题目
+                document.querySelectorAll('.topic-item').forEach(item => {
+                    const title = item.textContent.toLowerCase();
+                    if (title.includes(keyword)) {
+                        item.style.display = 'block';
+                        // 展开父级列表
+                        const parentList = item.closest('.topic-list');
+                        if (parentList) {
+                            parentList.classList.add('active');
+                            const btn = parentList.previousElementSibling;
+                            if (btn && btn.classList.contains('category-btn')) {
+                                const icon = btn.querySelector('.fa-chevron-down, .fa-chevron-up');
+                                if (icon) {
+                                    icon.className = 'fas fa-chevron-up icon';
+                                }
+                            }
+                        }
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
